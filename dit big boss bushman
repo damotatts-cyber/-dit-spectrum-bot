@@ -1,0 +1,4 @@
+unzip Bushmen_AI_Deploy_v1.zip
+cd Bushmen_AI_Deploy
+npm install
+npm run dev
