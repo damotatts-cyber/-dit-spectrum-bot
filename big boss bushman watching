@@ -1,0 +1,37 @@
+BIG BOSS BUSHMEN FULL WATCH – VERSION 1
+
+A personal intrusion detection and alert system that watches all inbound
+traffic to your device. It never touches external systems. Only your IP.
+
+INSTALL:
+1. Install Python 3
+2. pip install scapy
+3. On Windows: install Npcap
+4. Run: python main.py
+
+BACKGROUND MODE:
+python run_service.py
+
+LOGS:BIG BOSS BUSHMEN FULL WATCH – VERSION 1
+
+A personal intrusion detection and alert system that watches all inbound
+traffic to your device. It never touches external systems. Only your IP.
+
+INSTALL:
+1. Install Python 3
+2. pip install scapy
+3. On Windows: install Npcap
+4. Run: python main.py
+
+BACKGROUND MODE:
+python run_service.py
+
+LOGS:
+Stored in logs/events.log
+
+CONFIG:
+config.json controls thresholds and paths.
+Stored in logs/events.log
+
+CONFIG:
+config.json controls thresholds and paths.
