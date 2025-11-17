@@ -1,0 +1,41 @@
+import subprocess
+import sys
+import os
+
+print("Starting Big Boss Bushmen Full Watch in background mode...")
+
+# Simple “service style” launcher
+subprocess.Popen([sys.executable, "main.py"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+print("Guardian is now running quietly in the background.")
+from scapy.all import sniff
+from sentinel import BushmenSentinel
+from shield import block_ip
+from herald import log_event
+import json
+import threading
+import time
+
+with open("config.json") as f:
+    config = json.load(f)
+
+LOG_FILE = config["log_file"]
+sentinel = BushmenSentinel(config)
+
+def packet_handler(packet):
+    sentinel.analyze(packet, LOG_FILE)
+
+def start_sniffer():
+    sniff(prn=packet_handler, store=False)
+
+if __name__ == "__main__":
+    print("\n=== BIG BOSS BUSHMEN FULL WATCH ACTIVE ===")
+    print("Guardian standing between your IP and the world.")
+    print("Logs:", LOG_FILE, "\n")
+
+    t = threading.Thread(target=start_sniffer)
+    t.daemon = True
+    t.start()
+
+    while True:
+        time.sleep(1)
